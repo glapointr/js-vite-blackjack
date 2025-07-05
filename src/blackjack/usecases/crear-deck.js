@@ -7,10 +7,11 @@ import _ from 'underscore';
  * @returns {array<string>}
  */
 
-export const crearDeck = ( tiposCarta, tiposespeciales) => {
+export const crearDeck = ( tiposCarta, tiposespeciales ) => {
 
-    if (!tiposCarta) throw new Error('tiposCarta es un argumento obligatorio');
-    if ( tiposCarta.lenght > 0 ) throw new Error('tiposCarta tiene que ser un arreglo de String');
+    if ( !Array.isArray( tiposCarta ) || tiposCarta.length === 0 ) {
+        throw new Error('tiposCarta debe ser un arreglo de strings con al menos un elemento');
+    }
 
     let deck         = [];
     for( let i = 2; i <= 10; i++ ) {
